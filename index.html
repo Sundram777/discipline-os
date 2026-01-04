@@ -68,8 +68,13 @@
 <div id="habitModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
 <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl w-full max-w-md mx-4">
 <h2 id="modalTitle" class="text-xl font-bold mb-4">Add Habit</h2>
-<input id="habitInput" placeholder="Habit name" class="w-full p-3 mb-4 border rounded-xl">
-<select id="categoryInput" class="w-full p-3 border rounded-xl mb-4">
+<input id="habitInput"
+ class="w-full p-3 mb-4 border rounded-xl bg-white dark:bg-slate-900 
+        text-slate-900 dark:text-slate-100 placeholder:text-slate-400"
+ placeholder="Habit name">
+<select id="categoryInput"
+ class="w-full p-3 border rounded-xl mb-4 bg-white dark:bg-slate-900 
+        text-slate-900 dark:text-slate-100">
 <option>🏃 Physical</option>
 <option>📚 Learning</option>
 <option>🧠 Mental</option>
@@ -86,3 +91,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
