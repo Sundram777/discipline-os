@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DisciplineOS</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300">
+
+<div class="max-w-6xl mx-auto px-4 py-8">
+
+<header class="flex justify-between items-center mb-8">
+    <div>
+        <h1 class="text-3xl font-bold">DisciplineOS</h1>
+        <p class="text-slate-500 dark:text-slate-400" id="currentDateText"></p>
+    </div>
+    <div class="flex gap-3">
+        <button id="themeToggle" class="p-2 rounded-xl bg-white dark:bg-slate-800 border">
+            <i data-lucide="sun" class="hidden dark:block"></i>
+            <i data-lucide="moon" class="block dark:hidden"></i>
+        </button>
+        <button id="resetWeek" class="px-4 py-2 text-sm text-red-600 bg-red-50 rounded-xl">Reset Week</button>
+    </div>
+</header>
+
+<section class="grid md:grid-cols-3 gap-6 mb-10">
+    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border">
+        <p class="text-sm text-slate-500">Today's Progress</p>
+        <h3 class="text-2xl font-bold" id="todayCount">0/0 Habits</h3>
+        <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full mt-4">
+            <div id="todayBar" class="bg-green-500 h-2 rounded-full"></div>
+        </div>
+    </div>
+
+    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border">
+        <p class="text-sm text-slate-500">Weekly Completion</p>
+        <h3 class="text-2xl font-bold" id="weeklyAvg">0%</h3>
+        <p id="motivationMsg" class="text-xs text-slate-400 mt-2"></p>
+    </div>
+
+    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border flex items-center justify-center">
+        <button onclick="openModal()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold flex items-center justify-center gap-2">
+            <i data-lucide="plus-circle"></i> Add Habit
+        </button>
+    </div>
+</section>
+
+<div class="overflow-x-auto bg-white dark:bg-slate-800 rounded-3xl border">
+<table class="w-full">
+<thead>
+<tr class="text-xs uppercase text-slate-400 border-b">
+<th class="p-4">Habit</th><th>Category</th>
+<th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
+<th>Streak</th><th>Actions</th>
+</tr>
+</thead>
+<tbody id="habitBody"></tbody>
+</table>
+</div>
+
+</div>
+
+<div id="habitModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+<div class="bg-white dark:bg-slate-800 p-8 rounded-3xl w-full max-w-md mx-4">
+<h2 id="modalTitle" class="text-xl font-bold mb-4">Add Habit</h2>
+<input id="habitInput" placeholder="Habit name" class="w-full p-3 mb-4 border rounded-xl">
+<select id="categoryInput" class="w-full p-3 border rounded-xl mb-4">
+<option>🏃 Physical</option>
+<option>📚 Learning</option>
+<option>🧠 Mental</option>
+<option>💼 Work</option>
+<option>🌱 Personal</option>
+</select>
+<div class="flex gap-4">
+<button onclick="closeModal()" class="flex-1">Cancel</button>
+<button id="saveHabitBtn" class="flex-1 bg-indigo-600 text-white rounded-xl py-2">Save</button>
+</div>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
